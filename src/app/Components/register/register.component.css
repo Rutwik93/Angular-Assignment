@@ -1,0 +1,17 @@
+.myForm
+{
+    margin: auto;
+    width: 25vw;
+    margin-top: 10%;
+}
+
+.txtField
+{
+    display: block;
+    font-size: 16px;
+}
+
+.regBtn
+{
+    text-align: center;
+}

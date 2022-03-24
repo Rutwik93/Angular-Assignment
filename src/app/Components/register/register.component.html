@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<form #regForm="ngForm">
+  <mat-card class="myForm">
+    <mat-card-title>Registration</mat-card-title>
+    <mat-card-subtitle>Please enter your Registration details below!</mat-card-subtitle>
+    
+    <mat-form-field appearance="fill" class="txtField">
+      <mat-label>Enter First Name</mat-label>
+      <input matInput name="fname" [(ngModel)]="fname" required>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="txtField">
+      <mat-label>Enter Last Name</mat-label>
+      <input matInput name="lname" [(ngModel)]="lname" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="txtField">
+      <mat-label>Enter E-Mail Address</mat-label>
+      <input matInput name="email" [(ngModel)]="email" required email>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="txtField">
+      <mat-label>Enter Password</mat-label>
+      <input matInput type="password" name="password" [(ngModel)]="password" required minlength="6">
+    </mat-form-field>
+    <div class="regBtn">
+      <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="!regForm.valid">Sign-Up</button>
+    </div>
+  </mat-card>
+</form>
