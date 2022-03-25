@@ -1,28 +1,3 @@
-<!-- <p>
-  <mat-toolbar color="primary">
-    <mat-icon style="font-size:25px; margin-right: 1vh;">shopping_cart_checkout</mat-icon>
-    <span style="margin-right: 2%;">E-Commerce App</span>
-
-    <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="userID">logout</mat-icon>
-    <span (click)="logOut()" *ngIf="userID" style="cursor: pointer;">Logout</span>
-
-    <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="userID">logout</mat-icon>
-    <span (click)="logOut()" *ngIf="userID" style="cursor: pointer;">Logout</span>
-    
-    <span class="example-spacer"></span>
-    
-    <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="!userID && router.url=='/login'">person_add</mat-icon>
-    <span><a routerLink="/register" style="text-decoration:none; color:white;" *ngIf="!userID && router.url=='/login'">Register</a></span>
-
-    <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="!userID && router.url=='/register'">login</mat-icon>
-    <span><a routerLink="/login" style="text-decoration:none; color:white;" *ngIf="!userID && router.url=='/register'">Login</a></span>
-
-    <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="userID">logout</mat-icon>
-    <span (click)="logOut()" *ngIf="userID" style="cursor: pointer;">Logout</span>
-    
-  </mat-toolbar>
-</p> -->
-
 <mat-toolbar color="primary">
   <button mat-button routerLink="/" *ngIf="!userID">
     <mat-icon style="font-size:25px; margin-right: 1vh;">shopping_cart_checkout</mat-icon>
@@ -38,14 +13,12 @@
       <button mat-button routerLink="/">Home</button>
       <button mat-button routerLink="/products/electronics">Electronics</button>
       <button mat-button routerLink="/products/clothing">Clothing</button>
-      
-
   </div>
   <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm *ngIf="userID">
    <mat-icon>menu</mat-icon>
   </button>
 
-  <span class="example-spacer"></span>
+  <span class="spacer"></span>
 
   <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="!userID && router.url=='/login'">person_add</mat-icon>
   <span><a routerLink="/register" style="text-decoration:none; color:white;" *ngIf="!userID && router.url=='/login'">Register</a></span>
@@ -53,10 +26,10 @@
   <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="!userID && router.url=='/register'">login</mat-icon>
   <span><a routerLink="/login" style="text-decoration:none; color:white;" *ngIf="!userID && router.url=='/register'">Login</a></span>
 
-  
   <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu" *ngIf="userID">
     <mat-icon>settings</mat-icon>
   </button>
+
   <mat-menu #menu2="matMenu">
     <button mat-menu-item (click)="showCart()">
       <mat-icon class="material-class-outlined">shopping_cart</mat-icon>
@@ -70,7 +43,6 @@
       <mat-icon>logout</mat-icon>
       <span>Logout</span>
     </button>
-    
   </mat-menu>
 
 </mat-toolbar>

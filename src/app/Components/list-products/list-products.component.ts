@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ListProductsComponent implements OnInit {
   prodArray:any[]=[];
   loaded:boolean=false;
   
-  constructor(private router:Router, private route:ActivatedRoute, private products:ProductsService) { 
+  constructor(private router:Router, private route:ActivatedRoute, private products:ProductsService, private cart:CartService) { 
     this.currentPath=this.route.snapshot.paramMap.get('category');
     
     if(this.currentPath==="electronics")
@@ -42,9 +43,10 @@ export class ListProductsComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  addToCart(productID:any)
+  addToCart(productObj:any,qty:number=1)
   {
-    console.log("Product ID: "+productID);
+    this.cart.addProductToCart(productObj,qty);
+    
   }
 
 
