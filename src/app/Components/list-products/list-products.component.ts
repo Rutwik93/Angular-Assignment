@@ -11,6 +11,7 @@ export class ListProductsComponent implements OnInit {
 
   currentPath:string|null="";
   prodArray:any[]=[];
+  loaded:boolean=false;
   
   constructor(private router:Router, private route:ActivatedRoute, private products:ProductsService) { 
     this.currentPath=this.route.snapshot.paramMap.get('category');
@@ -19,22 +20,31 @@ export class ListProductsComponent implements OnInit {
     {
       this.products.getProducts("Electronics").subscribe(data => {
         data.forEach(val => {
-          this.prodArray.push(val.data())
+          let obj=val.data();
+          this.prodArray.push({ID:val.id,...(obj as any)});
         })
+        this.loaded=true;
       })
     }
     else
     {
       this.products.getProducts("Clothing").subscribe(data => {
         data.forEach(val => {
-          this.prodArray.push(val.data())
+          let obj=val.data();
+          this.prodArray.push({ID:val.id,...(obj as any)});
         })
+        this.loaded=true;
       })
     }
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
+  }
+  
+  addToCart(productID:any)
+  {
+    console.log("Product ID: "+productID);
   }
 
 

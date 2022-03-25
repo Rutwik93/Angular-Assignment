@@ -12,11 +12,6 @@ export class AppComponent {
 
   constructor()
   {
-    console.log("Loaded")
-  }
-
-  viewData()
-  {
-    console.log(this.email+" "+this.password)
+    
   }
 }

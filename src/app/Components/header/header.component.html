@@ -58,7 +58,7 @@
     <mat-icon>settings</mat-icon>
   </button>
   <mat-menu #menu2="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="showCart()">
       <mat-icon class="material-class-outlined">shopping_cart</mat-icon>
       <span>Cart</span>
     </button>

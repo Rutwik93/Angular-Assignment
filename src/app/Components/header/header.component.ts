@@ -20,6 +20,11 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  showCart()
+  {
+    this.router.navigate(['cart']);
+  }
+
   logOut()
   {
     this.auth.LogOut();

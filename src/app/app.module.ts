@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { NotifierModule } from 'angular-notifier';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './Components/register/register.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -24,6 +25,8 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
+import { LoadingSpinnerComponent } from './Components/loading-spinner/loading-spinner.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { ListProductsComponent } from './Components/list-products/list-products.
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    LoadingSpinnerComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,14 @@ import { ListProductsComponent } from './Components/list-products/list-products.
     AngularFirestoreModule,
     AngularFireAuthModule,
     FlexLayoutModule,
-    MatMenuModule
+    MatMenuModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: {
+          position: 'right',
+          distance: 12
+        }
+    }})
   ],
   providers: [],
   bootstrap: [AppComponent]

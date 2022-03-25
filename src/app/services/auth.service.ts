@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,10 @@ export class AuthService {
   userData: Observable<firebase.default.User | null>;
   loginStatus:boolean=false;
 
-  constructor(private angularFireAuth: AngularFireAuth,private firestore: AngularFirestore, private router:Router) { 
+  constructor(private angularFireAuth: AngularFireAuth, private router:Router, private notifier: NotifierService) { 
     this.userData = angularFireAuth.authState;
   }
-
+  
   RegisterUser(email: string, password: string, fname:string, lname:string) {
     this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(async res => {
       console.log('You are Successfully signed up!', res);
@@ -27,11 +27,15 @@ export class AuthService {
         if(res.user.displayName!==null)
           localStorage.setItem('User Name',res.user.displayName);
 
+        this.notifier.notify('success', 'Registration Was Successful! Welcome, '+res.user.displayName+'!'); 
         this.router.navigate(['/']);
       }
     })
     .catch(error => {
-    console.log('Something is wrong:', error.message);
+      if(error.code === "auth/email-already-in-use")
+        this.notifier.notify('error', "Error, User With Specified E-Mail Address Already Exists!"); 
+      else
+        this.notifier.notify('error', "Something went wrong!");
     });
   }
 
@@ -43,16 +47,24 @@ export class AuthService {
         localStorage.setItem('Token',res.user.refreshToken);
         if(res.user.displayName!==null)
           localStorage.setItem('User Name',res.user.displayName);
+          
+        this.notifier.notify('success', 'Welcome Back, '+res.user.displayName+'!');        
         this.router.navigate(['/']);
+        
       }
-    }).catch(err => {
-    console.log('Something went wrong:',err.message);
+    }).catch(error => {
+      if(error.code==="auth/wrong-password")
+        this.notifier.notify('error', "Error, Invalid Password!");
+      else if(error.code==="auth/too-many-requests")
+        this.notifier.notify('error', "Too many requests, Please wait for sometime!");
+      else
+        this.notifier.notify('error', "Something went wrong!");
     });
   }
 
   LogOut() {
     this.angularFireAuth.signOut();
     localStorage.clear();
-    this.router.navigate(['/login']);
+    window.location.reload();
   }
 }
