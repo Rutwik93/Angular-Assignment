@@ -8,7 +8,10 @@ export class ProductsService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  getProducts(category:string) {
-    return this.firestore.collection('Products', ref => ref.where("Category", "==", category)).get();
+  getProducts(category?:string) {
+    if(category)
+      return this.firestore.collection('Products', ref => ref.where("Category", "==", category)).get();
+    else
+      return this.firestore.collection('Products').get();
   }
 }

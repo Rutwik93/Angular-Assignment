@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class CartService {
   cartItems:any[]=[];
   grandTotal:number=0;
 
-  constructor() { }
+  constructor(private notifier: NotifierService) { }
 
   addProductToCart(productObj:any,qty:number=1)
   {
@@ -28,6 +29,7 @@ export class CartService {
       this.cartItems.push({...productObj,quantity:qty})
       this.grandTotal+=productObj.Price;
     }
+    this.notifier.notify('success', 'Item was added to Cart!'); 
     return this.cartItems;
   }
 

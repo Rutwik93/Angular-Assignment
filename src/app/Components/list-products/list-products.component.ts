@@ -46,7 +46,6 @@ export class ListProductsComponent implements OnInit {
   addToCart(productObj:any,qty:number=1)
   {
     this.cart.addProductToCart(productObj,qty);
-    
   }
 
 

@@ -1,4 +1,9 @@
-.spacer 
+.filler 
 {
-    flex: 1 1 auto;
+    flex-grow: 1;    
+}
+
+.right-btn
+{
+    width:fit-content;
 }

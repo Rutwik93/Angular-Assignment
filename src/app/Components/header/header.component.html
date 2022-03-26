@@ -6,7 +6,7 @@
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm *ngIf="userID">
       <button mat-button routerLink="/">
-        <mat-icon style="font-size:25px; margin-right: 1vh;">shopping_cart_checkout</mat-icon>
+        <mat-icon style="font-size:25px; margin-right: 5%;">shopping_cart_checkout</mat-icon>
         <span style="margin-left: 2%; font-size:18px;">E-Commerce App</span> 
       </button>
 
@@ -18,7 +18,7 @@
    <mat-icon>menu</mat-icon>
   </button>
 
-  <span class="spacer"></span>
+  <div class="filler"></div>
 
   <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="!userID && router.url=='/login'">person_add</mat-icon>
   <span><a routerLink="/register" style="text-decoration:none; color:white;" *ngIf="!userID && router.url=='/login'">Register</a></span>
@@ -26,8 +26,9 @@
   <mat-icon style="font-size:25px; margin-right: 1vh;" *ngIf="!userID && router.url=='/register'">login</mat-icon>
   <span><a routerLink="/login" style="text-decoration:none; color:white;" *ngIf="!userID && router.url=='/register'">Login</a></span>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu" *ngIf="userID">
-    <mat-icon>settings</mat-icon>
+  <button mat-icon-button [matMenuTriggerFor]="menu2" class="right-btn" *ngIf="userID">
+    <mat-icon style="margin-right: 5%;">settings</mat-icon>
+    <span style="font-size:18px">Settings</span>
   </button>
 
   <mat-menu #menu2="matMenu">
