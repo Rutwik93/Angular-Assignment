@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   email:string="";
   password:string="";
+  hide = true;
 
   constructor(public auth:AuthService,public router:Router) { }
 

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
-import { ListProductsComponent } from './Components/list-products/list-products.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
 import { CartComponent } from './Components/cart/cart.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHomePage = () => redirectLoggedInTo(['/']);
@@ -32,7 +32,13 @@ const routes: Routes = [
   },
   {
     path:'products/:category',
-    component:ListProductsComponent,
+    component:HomeComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path:'details/:productID',
+    component:ProductDetailsComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin }
   },

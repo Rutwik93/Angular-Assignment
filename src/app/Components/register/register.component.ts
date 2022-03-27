@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   password:string="";
   fname:string="";
   lname:string="";
-
+  hide = true;
 
   constructor(public auth:AuthService,public router:Router) { }
 

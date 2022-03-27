@@ -27,8 +27,9 @@ export class CartService {
     if(flag==false)
     {
       this.cartItems.push({...productObj,quantity:qty})
-      this.grandTotal+=productObj.Price;
+      this.grandTotal+=productObj.Price*qty;
     }
+    console.log(JSON.stringify(this.cartItems))
     this.notifier.notify('success', 'Item was added to Cart!'); 
     return this.cartItems;
   }

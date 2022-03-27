@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotifierModule } from 'angular-notifier';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './Components/register/register.component';
@@ -24,9 +24,8 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { HeaderComponent } from './Components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
-import { ListProductsComponent } from './Components/list-products/list-products.component';
-import { LoadingSpinnerComponent } from './Components/loading-spinner/loading-spinner.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +34,8 @@ import { CartComponent } from './Components/cart/cart.component';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    ListProductsComponent,
-    LoadingSpinnerComponent,
-    CartComponent
+    CartComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +52,7 @@ import { CartComponent } from './Components/cart/cart.component';
     AngularFireAuthModule,
     FlexLayoutModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     NotifierModule.withConfig({
       position: {
         horizontal: {

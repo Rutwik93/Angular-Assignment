@@ -17,14 +17,36 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router, private route:ActivatedRoute, private products:ProductsService, private cart:CartService) {
     this.currentPath=this.route.snapshot.paramMap.get('category');
     
-    this.products.getProducts().subscribe(data => {
-      data.forEach(val => {
-        let obj=val.data();
-        this.prodArray.push({ID:val.id,...(obj as any)});
+    if(this.currentPath==="electronics")
+    {
+      this.products.getProducts("Electronics").subscribe(data => {
+        data.forEach(val => {
+          let obj=val.data();
+          this.prodArray.push({ID:val.id,...(obj as any)});
+        })
+        this.loaded=true;
       })
-      this.loaded=true;
-    })
-        
+    }
+    else if(this.currentPath==="clothing")
+    {
+      this.products.getProducts("Clothing").subscribe(data => {
+        data.forEach(val => {
+          let obj=val.data();
+          this.prodArray.push({ID:val.id,...(obj as any)});
+        })
+        this.loaded=true;
+      })
+    }
+    else
+    {
+      this.products.getProducts().subscribe(data => {
+        data.forEach(val => {
+          let obj=val.data();
+          this.prodArray.push({ID:val.id,...(obj as any)});
+        })
+        this.loaded=true;
+      })
+    }
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
    }
 
@@ -35,5 +57,10 @@ export class HomeComponent implements OnInit {
   addToCart(productObj:any,qty:number=1)
   {
     this.cart.addProductToCart(productObj,qty);
+  }
+
+  viewDetails(productID:string)
+  {
+    this.router.navigate(['details/'+productID])
   }
 }
