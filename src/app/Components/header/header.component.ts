@@ -25,6 +25,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['cart']);
   }
 
+  showOrders()
+  {
+    this.router.navigate(['orders']);
+  }
+
   logOut()
   {
     this.auth.LogOut();

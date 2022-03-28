@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table' 
 import { NotifierModule } from 'angular-notifier';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './Components/register/register.component';
@@ -26,6 +27,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import { CartComponent } from './Components/cart/cart.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { OrderSuccessComponent } from './Components/order-success/order-success.component';
+import { OrdersComponent } from './Components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
     HomeComponent,
     HeaderComponent,
     CartComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    OrderSuccessComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
     FlexLayoutModule,
     MatMenuModule,
     MatProgressSpinnerModule,
+    MatTableModule,
     NotifierModule.withConfig({
       position: {
         horizontal: {

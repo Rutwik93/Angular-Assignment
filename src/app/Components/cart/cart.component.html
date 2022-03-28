@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-<div class="cartEmpty" *ngIf="!cartItems.length">
-    <mat-icon style="line-height: 5px; font-size: 8em; margin-right: 5%;">production_quantity_limits</mat-icon>
-    <div style="font-size: 3em;">Your Cart is Empty!</div>
+<div class="cartEmpty" *ngIf="!cartItems.length" fxLayout.gt-sm="row wrap" fxLayout.xs="column wrap" fxLayout.sm="column wrap" fxLayoutGap="0.5%"  style="margin-top:2%; margin-bottom: 2%;">
+    <mat-icon [ngClass.lt-md]="'iconLTMD'" [ngClass.gt-sm]="'iconGTSM'" style="font-size: 8em; width: 100px;">production_quantity_limits</mat-icon>
+    <div style="font-size: 3em; margin: auto;">Your Cart is Empty!</div>
 </div>
 
 <div class="container" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center" style="margin-top:2%; margin-bottom: 2%;" *ngIf="cartItems.length">
@@ -31,9 +31,7 @@
             <mat-card-title>Total Amount:</mat-card-title><span style="font-size: 24px; font-weight: 500;">{{total | currency:'INR'}}</span>
         </mat-card-title-group>
         <div style="text-align: center; margin-top: 5%;">
-            <button mat-raised-button color="primary" style="display: inline-block;  margin: auto;"><mat-icon style="font-size: 25px; line-height:22px; margin-right: 5px;">local_shippingr</mat-icon>Place Order</button>
+            <button mat-raised-button color="primary" style="display: inline-block;  margin: auto;" (click)="handleOrder()"><mat-icon style="font-size: 25px; line-height:22px; margin-right: 5px;">local_shippingr</mat-icon>Place Order</button>
         </div>
-        
     </mat-card>
-    
 </div>

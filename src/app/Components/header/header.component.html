@@ -36,7 +36,7 @@
       <mat-icon class="material-class-outlined">shopping_cart</mat-icon>
       <span>Cart</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="showOrders()">
       <mat-icon>format_list_bulleted</mat-icon>
       <span>My Orders</span>
     </button>
@@ -45,7 +45,6 @@
       <span>Logout</span>
     </button>
   </mat-menu>
-
 </mat-toolbar>
 
 <mat-menu x-position="before" #menu="matMenu">

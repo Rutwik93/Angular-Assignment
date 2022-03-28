@@ -14,5 +14,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90%;    
+    height: 70%;    
+    margin: auto;
+}
+
+.iconLTMD
+{
+    height: 70px;
+    line-height: 10px;
+}
+
+.iconGTSM
+{
+    height: 120px;
 }

@@ -1,0 +1,58 @@
+.orderCard
+{
+    margin-bottom: 20px;
+}
+
+table 
+{
+    width: 100%;
+}
+
+.divider
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-top: 2px dashed rgb(0, 0, 0);
+}
+
+.orderDetails
+{
+    margin-bottom: 2%;
+}
+
+.dataTable
+{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.spinner
+{
+  text-align: center;
+  position: relative;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.cartEmpty 
+{
+    color:#3f51b5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;    
+    margin: auto;
+}
+
+.iconLTMD
+{
+    height: 70px;
+    line-height: 10px;
+}
+
+.iconGTSM
+{
+    height: 120px;
+}

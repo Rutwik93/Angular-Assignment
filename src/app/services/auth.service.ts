@@ -17,7 +17,6 @@ export class AuthService {
   
   RegisterUser(email: string, password: string, fname:string, lname:string) {
     this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(async res => {
-      console.log('You are Successfully signed up!', res);
       if(res.user)
       {
         await res.user.updateProfile({displayName:fname+" "+lname});

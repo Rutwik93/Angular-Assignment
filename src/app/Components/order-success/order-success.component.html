@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div>
+    <div class="successOrder">
+      <mat-icon class="successIcon" style="width: 220px; height: 220px; margin: auto; display: block;">verified</mat-icon>
+      <br/>
+      <p style="display: block; font-size: 25px; margin: auto; text-align: center; line-height: 35px; font-weight: bold;">Order Placed Successfully! Please Keep The Following Order ID For Future Reference.</p>
+      <br/>
+      <p style="display: block; font-size: 25px; margin: auto; text-align: center; line-height: 35px; font-weight: bold;">Order ID: {{orderID}}</p>
+      <br/>
+      <button mat-raised-button color="primary" style="background-color: green; margin-top: 200px; display: block; margin: auto;" (click)="viewOrders()">View Orders</button>
+    </div>
+</div>
