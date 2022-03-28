@@ -7,19 +7,26 @@
 
 <div class="container" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center" style="margin-top:2%; margin-bottom: 2%;" *ngIf="cartItems.length">
     <mat-card fxFlex="70%" fxFlex.sm="90%" fxFlex.xs="90%"> 
-        <div class="container" fxLayout="row wrap" class="itemsList" fxLayoutGap="0.5%" fxLayoutAlign="center">
-            <mat-card fxFlex="100%" class="cartItem" *ngFor="let item of cartItems"> 
-                <mat-card-title-group>
-                    <img mat-card-xl-image src={{item.URL}}>
-                    <mat-card-title>{{item.Name}}</mat-card-title>
-                    <mat-card-subtitle>Category: {{item.Category}}</mat-card-subtitle>
-                    <mat-card-subtitle>Description: {{item.Description}}</mat-card-subtitle>
-                    <mat-card-title>{{item.Price | currency:'INR'}} x {{item.quantity}} = {{item.Price*item.quantity | currency:'INR'}}</mat-card-title>
-                </mat-card-title-group>        
-                <button mat-raised-button color="primary" (click)="deleteItem(item)"><mat-icon style="font-size: 25px; line-height:22px; margin-right: 5px;">delete</mat-icon>Delete Item</button>       
+        <div class="container" fxLayout="row wrap" class="itemsList" fxLayoutAlign="left" *ngFor="let item of cartItems">
+            <mat-card fxFlex="30%" fxFlex.sm="100%" fxFlex.xs="100%" style="box-shadow: none;"> 
+                <img style="width: 100%; height: 250px;" src={{item.URL}}>
+            </mat-card>
+
+            <mat-card fxFlex="70%" fxFlex.sm="100%" fxFlex.xs="100%" style="padding: 0%; margin: 0%; box-shadow: none;"> 
+                <div fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+                    <mat-card fxFlex="100%" style="box-shadow: none;"> 
+                        <mat-card-title-group>
+                            <mat-card-title>{{item.Name}}</mat-card-title>
+                            <mat-card-subtitle style="margin-top: 3%; text-align: justify; font-weight: 500; font-size:20px; line-height: 30px;">Category: {{item.Category}}</mat-card-subtitle>
+                            <mat-card-subtitle style="margin-top: 3%; text-align: justify; font-weight: 500; font-size:20px; line-height: 30px;">Description: {{item.Description}}</mat-card-subtitle>
+                            <mat-card-title style="margin-top: 5%;">{{item.Price | currency:'INR'}} x {{item.quantity}} = {{item.Price*item.quantity | currency:'INR'}}</mat-card-title>
+                        </mat-card-title-group>        
+                        <button mat-raised-button color="primary" (click)="deleteItem(item)" style="margin-top: 5%;"><mat-icon style="font-size: 25px; line-height:22px; margin-right: 5px;">delete</mat-icon>Delete Item</button>    
+                    </mat-card>
+                </div>
             </mat-card>
         </div>
-        <button mat-raised-button color="primary" style="float: right;" (click)="clearCart()"><mat-icon style="font-size: 25px; line-height:22px; margin-right: 5px;">delete_forever</mat-icon>Empty Cart</button>
+        <button mat-raised-button color="primary" style="margin-top: 20px; float: right;" (click)="clearCart()"><mat-icon style="font-size: 25px; line-height:22px; margin-right: 5px;">delete_forever</mat-icon>Empty Cart</button>
     </mat-card>
 
     <mat-card fxFlex="25%" fxFlex.sm="90%" fxFlex.xs="90%" style="height: fit-content;"> 
